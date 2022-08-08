@@ -1,0 +1,34 @@
+[03/Aug/2022:23:05:05] (I): WordPress Instance Info:
+[03/Aug/2022:23:05:05] (I): Home URL : http://127.0.0.1/wordpress
+[03/Aug/2022:23:05:05] (I): Site URL : http://127.0.0.1/wordpress
+[03/Aug/2022:23:05:05] (I): WordPress Version : 6.0.1
+[03/Aug/2022:23:05:05] (I): Onboarding Version : 1.1.25
+[03/Aug/2022:23:05:05] (I): Multisite : No
+[03/Aug/2022:23:05:05] (I): Server Info : Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/8.0.12
+[03/Aug/2022:23:05:05] (I): PHP Version : 8.0.12
+[03/Aug/2022:23:05:05] (I): HTTPS : No
+[03/Aug/2022:23:05:05] (I): PHP Max Execution Time : 0
+[03/Aug/2022:23:05:05] (I): PHP Max Input Vars : 1000
+[03/Aug/2022:23:05:05] (I): Max Upload Size : 41943040
+[03/Aug/2022:23:05:05] (I): Plugins:
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Gravity Forms : v2.6.3 (Gravity Forms)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] AMP : v2.3.0 (AMP Project Contributors)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Starter Templates : v3.1.13 (Brainstorm Force)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] CoBlocks : v2.24.2 (GoDaddy)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Elementor Pro : v3.7.3 (Elementor.com)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Elementor : v3.8.0-dev1 (Elementor.com)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Gutenberg : v13.8.0 (Gutenberg Team)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Health Check &amp; Troubleshooting : v1.4.5 (The WordPress.org community)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] WPCode - Insert Headers, Footers, and Code Snippets : v2.0.1 (WPCode)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Neve Pro Addon : v2.3.4 (ThemeIsle)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Image optimization service by Optimole : v3.4.4 (Optimole)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Otter – Page Builder Blocks &amp; Extensions for Gutenberg : v2.0.9 (ThemeIsle)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Otter Pro : v2.0.9 (ThemeIsle)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Templates Patterns Collection : v1.1.25 (ThemeIsle)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Orbit Fox Companion : v2.10.13 (Themeisle)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] Ultimate Addons for Gutenberg : v1.25.6 (Brainstorm Force)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] White Label CMS : v2.3 (www.videousermanuals.com)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] WP2Static Add-on: Netlify Deployment : v1.0.1 (Leon Stafford)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] WP2Static Add-on: Zip Deployment : v1.0.1 (Leon Stafford)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] WP2Static : v7.1.7 (WP2Static)
+[03/Aug/2022:23:05:05] (I): [PLUGIN] WPForms Lite : v1.7.5.3 (WPForms)

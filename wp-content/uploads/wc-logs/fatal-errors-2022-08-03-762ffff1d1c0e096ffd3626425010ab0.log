@@ -1,0 +1,16 @@
+2022-08-03T21:03:05+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in C:\xampp\htdocs\wordpress\wp-content\themes\neve\header-footer-grid\templates\component-wrapper.php:13
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-includes\template.php(772): require()
+#1 C:\xampp\htdocs\wordpress\wp-content\themes\neve\header-footer-grid\Main.php(198): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\wordpress\wp-content\themes\neve\header-footer-grid\Core\Components\Abstract_Component.php(607): HFG\Main->load('component-wrapp...')
+#3 C:\xampp\htdocs\wordpress\wp-includes\customize\class-wp-customize-partial.php(221): HFG\Core\Components\Abstract_Component->render(Object(WP_Customize_Partial), Array)
+#4 C:\xampp\htdocs\wordpress\wp-includes\customize\class-wp-customize-selective-refresh.php(371): WP_Customize_Partial->render(Array)
+#5 C:\xampp\htdocs\wordpress\wp-includes\class-wp-hook.php(307): WP_Customize_Selective_Refresh->handle_render_partials_request('')
+#6 C:\xampp\htdocs\wordpress\wp-includes\class-wp-hook.php(331): WP_Hook->apply_filters(NULL, Array)
+#7 C:\xampp\htdocs\wordpress\wp-includes\plugin.php(476): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\wordpress\wp-includes\template-loader.php(13): do_action('template_redire...')
+#9 C:\xampp\htdocs\wordpress\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\wordpress\index.php(17): require('C:\\xampp\\htdocs...')
+#11 {main}
+  thrown in C:\xampp\htdocs\wordpress\wp-content\themes\neve\header-footer-grid\templates\component-wrapper.php on line 13
+
