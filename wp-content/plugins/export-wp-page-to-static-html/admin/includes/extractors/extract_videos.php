@@ -5,11 +5,11 @@ namespace ExportHtmlAdmin\extract_videos;
 class extract_videos
 {
 
-    private $export_Wp_Page_To_Static_Html_Admin;
+    private $admin;
 
-    public function __construct($export_Wp_Page_To_Static_Html_Admin)
+    public function __construct($admin)
     {
-        $this->export_Wp_Page_To_Static_Html_Admin = $export_Wp_Page_To_Static_Html_Admin;
+        $this->admin = $admin;
     }
 
     /**
@@ -19,14 +19,14 @@ class extract_videos
      */
     public function get_videos($url="")
     {
-        $src = $this->export_Wp_Page_To_Static_Html_Admin->site_data;
+        $src = $this->admin->site_data;
         $videoLinks = $src->find('video');
         $videoHrefLinks = $src->find('a');
-        $path_to_dot = $this->export_Wp_Page_To_Static_Html_Admin->rc_path_to_dot($url, true, true);
-        $saveAllAssetsToSpecificDir = $this->export_Wp_Page_To_Static_Html_Admin->getSaveAllAssetsToSpecificDir();
+        $path_to_dot = $this->admin->rc_path_to_dot($url, true, true);
+        $saveAllAssetsToSpecificDir = $this->admin->getSaveAllAssetsToSpecificDir();
 
         if (!empty($videoLinks)) {
-            $videos_path = $this->export_Wp_Page_To_Static_Html_Admin->getVideosPath();
+            $videos_path = $this->admin->getVideosPath();
             if (!file_exists($videos_path)) {
                 @mkdir($videos_path);
             }
@@ -35,14 +35,14 @@ class extract_videos
                 if (isset($link->src) && !empty($link->src)) {
                     $src_link = $link->src;
                     $src_link = html_entity_decode($src_link, ENT_QUOTES);
-                    $src_link = $this->export_Wp_Page_To_Static_Html_Admin->ltrim_and_rtrim($src_link);
+                    $src_link = $this->admin->ltrim_and_rtrim($src_link);
 
                     $src_link = url_to_absolute($url, $src_link);
-                    $host = $this->export_Wp_Page_To_Static_Html_Admin->get_host($src_link);
+                    $host = $this->admin->get_host($src_link);
 
-                    $videoExts = $this->export_Wp_Page_To_Static_Html_Admin->getVideoExtensions();
-                    $videoBasename = $this->export_Wp_Page_To_Static_Html_Admin->url_to_basename($src_link);
-                    $videoBasename = $this->export_Wp_Page_To_Static_Html_Admin->filter_filename($videoBasename);
+                    $videoExts = $this->admin->getVideoExtensions();
+                    $videoBasename = $this->admin->url_to_basename($src_link);
+                    $videoBasename = $this->admin->filter_filename($videoBasename);
                     $urlExt = pathinfo($videoBasename, PATHINFO_EXTENSION);
                     $exclude_url = apply_filters('wp_page_to_html_exclude_urls_settings_only', false, $src_link);
 
@@ -50,7 +50,7 @@ class extract_videos
                         $newlyCreatedBasename = $this->save_video($src_link, $url);
 
                         if(!$saveAllAssetsToSpecificDir){
-                            $middle_p = $this->export_Wp_Page_To_Static_Html_Admin->rc_get_url_middle_path_for_assets($src_link);
+                            $middle_p = $this->admin->rc_get_url_middle_path_for_assets($src_link);
                             $link->href = $path_to_dot . $middle_p . $newlyCreatedBasename;
                             $link->src = $path_to_dot . $middle_p . $newlyCreatedBasename;
                         }
@@ -70,14 +70,14 @@ class extract_videos
                     $src_link = $link->href;
                     $src_link = html_entity_decode($src_link, ENT_QUOTES);
 
-                    $src_link = $this->export_Wp_Page_To_Static_Html_Admin->ltrim_and_rtrim($src_link);
+                    $src_link = $this->admin->ltrim_and_rtrim($src_link);
 
                     $src_link = url_to_absolute($url, $src_link);
-                    $host = $this->export_Wp_Page_To_Static_Html_Admin->get_host($src_link);
+                    $host = $this->admin->get_host($src_link);
 
-                    $videoExts = $this->export_Wp_Page_To_Static_Html_Admin->getVideoExtensions();
-                    $audioBasename = $this->export_Wp_Page_To_Static_Html_Admin->url_to_basename($src_link);
-                    $audioBasename = $this->export_Wp_Page_To_Static_Html_Admin->filter_filename($audioBasename);
+                    $videoExts = $this->admin->getVideoExtensions();
+                    $audioBasename = $this->admin->url_to_basename($src_link);
+                    $audioBasename = $this->admin->filter_filename($audioBasename);
 
                     $urlExt = pathinfo($audioBasename, PATHINFO_EXTENSION);
 
@@ -88,7 +88,7 @@ class extract_videos
 
                         $newlyCreatedBasename = $this->save_video($src_link, $url);
                         if(!$saveAllAssetsToSpecificDir){
-                            $middle_p = $this->export_Wp_Page_To_Static_Html_Admin->rc_get_url_middle_path_for_assets($src_link);
+                            $middle_p = $this->admin->rc_get_url_middle_path_for_assets($src_link);
                             $link->href = $path_to_dot . $middle_p . $newlyCreatedBasename;
                             $link->src = $path_to_dot . $middle_p . $newlyCreatedBasename;
                         }
@@ -104,7 +104,7 @@ class extract_videos
         }
 
 
-        $this->export_Wp_Page_To_Static_Html_Admin->site_data = $src;
+        $this->admin->site_data = $src;
 
 
     }
@@ -112,14 +112,14 @@ class extract_videos
     public function save_video($video_url_prev = "", $found_on = "")
     {
         $video_url = $video_url_prev;
-        $videos_path = $this->export_Wp_Page_To_Static_Html_Admin->getVideosPath();
+        $videos_path = $this->admin->getVideosPath();
         $video_url = url_to_absolute($found_on, $video_url);
-        $m_basename = $this->export_Wp_Page_To_Static_Html_Admin->middle_path_for_filename($video_url);
-        $saveAllAssetsToSpecificDir = $this->export_Wp_Page_To_Static_Html_Admin->getSaveAllAssetsToSpecificDir();
-        $exportTempDir = $this->export_Wp_Page_To_Static_Html_Admin->getExportTempDir();
-        $keepSameName = $this->export_Wp_Page_To_Static_Html_Admin->getKeepSameName();
-        $host = $this->export_Wp_Page_To_Static_Html_Admin->get_host($video_url);
-        $basename = $this->export_Wp_Page_To_Static_Html_Admin->url_to_basename($video_url);
+        $m_basename = $this->admin->middle_path_for_filename($video_url);
+        $saveAllAssetsToSpecificDir = $this->admin->getSaveAllAssetsToSpecificDir();
+        $exportTempDir = $this->admin->getExportTempDir();
+        $keepSameName = $this->admin->getKeepSameName();
+        $host = $this->admin->get_host($video_url);
+        $basename = $this->admin->url_to_basename($video_url);
 
         if($saveAllAssetsToSpecificDir && $keepSameName && !empty($m_basename)){
             $m_basename = explode('-', $m_basename);
@@ -127,21 +127,21 @@ class extract_videos
         }
 
         if (
-            !$this->export_Wp_Page_To_Static_Html_Admin->is_link_exists($video_url)
-            && $this->export_Wp_Page_To_Static_Html_Admin->update_export_log($video_url)
+            !$this->admin->is_link_exists($video_url) && !$this->admin->is_failed_file($video_url)
+            && $this->admin->update_export_log($video_url)
         ) {
-            $this->export_Wp_Page_To_Static_Html_Admin->add_urls_log($video_url, $found_on, 'video');
+            $this->admin->add_urls_log($video_url, $found_on, 'video');
 
 
             if (!(strpos($basename, ".") !== false)) {
                 $basename = rand(5000, 9999) . ".mp4";
-                $this->export_Wp_Page_To_Static_Html_Admin->update_urls_log($video_url_prev, $basename, 'new_file_name');
+                $this->admin->update_urls_log($video_url_prev, $basename, 'new_file_name');
             }
-            $basename = $this->export_Wp_Page_To_Static_Html_Admin->filter_filename($basename);
+            $basename = $this->admin->filter_filename($basename);
 
             $my_file = $videos_path . $m_basename . $basename;
 
-            $middle_p = $this->export_Wp_Page_To_Static_Html_Admin->rc_get_url_middle_path_for_assets($video_url);
+            $middle_p = $this->admin->rc_get_url_middle_path_for_assets($video_url);
             if(!$saveAllAssetsToSpecificDir){
 
                 if(!file_exists($exportTempDir .'/'. $middle_p)){
@@ -157,15 +157,20 @@ class extract_videos
 
                     $my_file = $videos_path . $m_basename . $basename;
                 }
+                else{
+                    if(!file_exists($videos_path)){
+                        @mkdir($videos_path);
+                    }
+                }
             }
 
             if (!file_exists($my_file)) {
-                $abs_url_to_path = $this->export_Wp_Page_To_Static_Html_Admin->abs_url_to_path($video_url);
+                $abs_url_to_path = $this->admin->abs_url_to_path($video_url);
                 if (strpos($video_url, $host) !== false && file_exists($abs_url_to_path)){
                     @copy($abs_url_to_path, $my_file);
                 }
                 else{
-                    $data = $this->export_Wp_Page_To_Static_Html_Admin->get_url_data($video_url);
+                    $data = $this->admin->get_url_data($video_url);
                     $handle = @fopen($my_file, 'w') or die('Cannot open file:  ' . $my_file);
 
                     $data .= "\n/*This file was exported by \"Export WP Page to Static HTML\" plugin which created by ReCorp (https://myrecorp.com) */";
@@ -175,7 +180,7 @@ class extract_videos
 
 
 
-                $this->export_Wp_Page_To_Static_Html_Admin->update_urls_log($video_url_prev, 1);
+                $this->admin->update_urls_log($video_url_prev, 1);
 
             }
 
@@ -186,8 +191,8 @@ class extract_videos
         }
         else{
 
-            if (!(strpos($basename, ".") !== false) && $this->export_Wp_Page_To_Static_Html_Admin->get_newly_created_basename_by_url($video_url) != false){
-                return $m_basename . $this->export_Wp_Page_To_Static_Html_Admin->get_newly_created_basename_by_url($video_url);
+            if (!(strpos($basename, ".") !== false) && $this->admin->get_newly_created_basename_by_url($video_url) != false){
+                return $m_basename . $this->admin->get_newly_created_basename_by_url($video_url);
             }
 
             if ($saveAllAssetsToSpecificDir && !empty($m_basename)){

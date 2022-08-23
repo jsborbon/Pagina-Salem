@@ -2,7 +2,7 @@
 Contributors: recorp
 Tags: HTML, wp to html, static website generator, export, page to html, static, css, wp page, page, wp, save as html
 Requires at least: 4.1
-Tested up to: 6.0
+Tested up to: 5.8
 Requires PHP: 5.4
 Stable tag: 2.0.4
 License: GPL-3.0-or-later
@@ -76,6 +76,9 @@ Or you can contact us on our site [https://myrecorp.com](https://myrecorp.com)
 
 
 == Changelog ==
+
+= 2.1.1 - 12 August 2022 =
+* Fixed some major issues.
 
 = 2.1.0 - 23 June 2022 =
 * Added html icon to the menu.

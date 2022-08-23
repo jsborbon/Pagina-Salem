@@ -121,7 +121,7 @@ class Export_Wp_Page_To_Static_Html_Admin {
 
 
         $this->saveAllAssetsToSpecificDir = get_option('rcExportHtmlSaveAllAssetsToSpecificDir', true);
-        $this->keepSameName = get_option('rcExportHtmlKeepSameName', false);
+        $this->keepSameName = false;
         $this->rcExportHtmlAddContentsToTheHeader = get_option('rcExportHtmlAddContentsToTheHeader', "");
         $this->rcExportHtmlAddContentsToTheFooter = get_option('rcExportHtmlAddContentsToTheFooter', "");
         $this->require_dirs();
@@ -1344,8 +1344,7 @@ class Export_Wp_Page_To_Static_Html_Admin {
         global $wpdb;
 
         $url = str_replace(array('http:', 'https:'), array('', ''), $url);
-        $url = rtrim($url, '/');
-        $url .= '/';
+        $url = $this->removeParam(urldecode($url), 'ver');
 
         $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}export_page_to_html_logs WHERE path LIKE '%{$url}'");
 
@@ -2216,6 +2215,26 @@ class Export_Wp_Page_To_Static_Html_Admin {
         );
     }
 
+    public function is_failed_file($file){
+        $failedFiles = get_option('rcwppth_failed_files');
+        if (!empty($failedFiles)){
+            foreach ($failedFiles as $key => $item) {
+                if (strpos($item, $file) !== false){
+                    return true;
+                    break;
+                }
+            }
+        }
+
+
+        return false;
+    }
+
+    function removeParam($url, $param) {
+        $url = preg_replace('/(&|\?)'.preg_quote($param).'=[^&]*$/', '', $url);
+        $url = preg_replace('/(&|\?)'.preg_quote($param).'=[^&]*&/', '$1', $url);
+        return $url;
+    }
 
 }
 

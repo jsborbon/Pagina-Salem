@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'codeinwp/themeisle-companion',
-        'pretty_version' => 'v2.10.13',
-        'version' => '2.10.13.0',
-        'reference' => '65ba04d8e6877a168952a474f43c3d010ce74b48',
+        'pretty_version' => 'v2.10.14',
+        'version' => '2.10.14.0',
+        'reference' => 'cba35cf6479051c2138b1f16991e4a220c364d3d',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,12 +22,10 @@
         'codeinwp/elementor-extra-widgets' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'c6121466d107952821d35bec364983a88fbddab5',
+            'reference' => 'd86a080a608aeee4e5efb7ec88cb5caeda7c3249',
             'type' => 'library',
             'install_path' => __DIR__ . '/../codeinwp/elementor-extra-widgets',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'codeinwp/full-width-page-templates' => array(
@@ -36,9 +34,7 @@
             'reference' => 'ac15bbb1295d39baf28978c7d9c04fed21ea3429',
             'type' => 'library',
             'install_path' => __DIR__ . '/../codeinwp/full-width-page-templates',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'codeinwp/gutenberg-blocks' => array(
@@ -51,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'codeinwp/themeisle-companion' => array(
-            'pretty_version' => 'v2.10.13',
-            'version' => '2.10.13.0',
-            'reference' => '65ba04d8e6877a168952a474f43c3d010ce74b48',
+            'pretty_version' => 'v2.10.14',
+            'version' => '2.10.14.0',
+            'reference' => 'cba35cf6479051c2138b1f16991e4a220c364d3d',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -65,15 +61,13 @@
             'reference' => '73f9d5696603b0aa2e25b9c035e4abfaf5bd2d68',
             'type' => 'library',
             'install_path' => __DIR__ . '/../codeinwp/themeisle-content-forms',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'codeinwp/themeisle-sdk' => array(
-            'pretty_version' => '3.2.26',
-            'version' => '3.2.26.0',
-            'reference' => 'a4451041bb97a325c7bb8e86a5584adf4636650e',
+            'pretty_version' => '3.2.27',
+            'version' => '3.2.27.0',
+            'reference' => 'bab0314e1f6e2f811116a2da7736b94cbe6af90f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../codeinwp/themeisle-sdk',
             'aliases' => array(),

@@ -290,6 +290,21 @@ class Loader {
 	}
 
 	/**
+	 * Detect WooCommerce pages where sidebar shop is present.
+	 *
+	 * @return bool
+	 */
+	private function neve_is_woo_page() {
+		$functions_to_check = [ 'is_woocommerce', 'is_cart', 'is_checkout', 'is_account_page' ];
+		foreach ( $functions_to_check as $func ) {
+			if ( ! function_exists( $func ) ) {
+				return false;
+			}
+		}
+		return is_woocommerce() || is_cart() || is_checkout() || is_account_page();
+	}
+
+	/**
 	 * Render shop custom sidebar.
 	 *
 	 * @param string $action Sidebar action ( append / prepand / replace ).
@@ -297,7 +312,7 @@ class Loader {
 	 * @param int    $post_id Custom layout id.
 	 */
 	private function render_shop_custom_sidebar( $action, $priority, $post_id ) {
-		if ( function_exists( 'is_woocommerce' ) && ! is_woocommerce() ) {
+		if ( ! $this->neve_is_woo_page() ) {
 			return;
 		}
 
@@ -309,7 +324,7 @@ class Loader {
 			add_filter(
 				'neve_has_custom_sidebar',
 				function ( $value, $context ) {
-					if ( $context !== 'shop' ) {
+					if ( $context !== 'shop' && $context !== 'woo-page' ) {
 						return $value;
 					}
 					return true;
@@ -352,7 +367,7 @@ class Loader {
 			add_filter(
 				'neve_has_custom_sidebar',
 				function ( $value, $context ) {
-					if ( $context !== 'blog-archive' && $context !== 'single-post' ) {
+					if ( $context !== 'blog-archive' && $context !== 'single-post' && $context !== 'single-page' ) {
 						return $value;
 					}
 					return true;
@@ -368,8 +383,10 @@ class Loader {
 		add_action(
 			$hook,
 			function ( $context, $side ) use ( $post_id ) {
-				$this->render_sidebar_markup( 'blog-archive', $side, $post_id );
-				$this->render_sidebar_markup( 'single-post', $side, $post_id );
+				if ( $context !== 'blog-archive' && $context !== 'single-post' && $context !== 'single-page' ) {
+					return;
+				}
+				$this->render_sidebar_markup( $context, $side, $post_id );
 			},
 			$priority,
 			2
@@ -411,23 +428,22 @@ class Loader {
 		}
 
 		$sidebar_setup = apply_filters( 'neve_' . $context . '_sidebar_setup', [] );
-
 		if ( empty( $sidebar_setup ) || ! array_key_exists( 'theme_mod', $sidebar_setup ) ) {
 			return;
 		}
 
 		$theme_mod = $sidebar_setup['theme_mod'];
 		$theme_mod = array_key_exists( 'side', $sidebar_setup ) ? $sidebar_setup['side'] : apply_filters( 'neve_sidebar_position', get_theme_mod( $theme_mod, 'right' ) );
-
 		if ( $theme_mod !== $side ) {
 			return;
 		}
 
-		if ( $context === 'shop' && ( function_exists( 'is_woocommerce' ) && ! is_woocommerce() ) ) {
+		if ( $context === 'shop' && ! $this->neve_is_woo_page() ) {
 			return;
 		}
 
-		if ( $context === 'blog-archive' && ! is_home() ) {
+		$post_type = get_post_type();
+		if ( $context === 'blog-archive' && ! is_home() && ! is_post_type_archive( $post_type ) ) {
 			return;
 		}
 

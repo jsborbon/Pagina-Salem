@@ -1,3 +1,8 @@
+##### [Version 2.3.5](https://github.com/Codeinwp/neve-pro-addon/compare/v2.3.4...v2.3.5) (2022-08-18)
+
+- [Feat] Introduce two new conditions for Custom Layouts: page parent and page ancestor
+- [Fix] Custom Layout Sidebar not working on page
+
 ##### [Version 2.3.4](https://github.com/Codeinwp/neve-pro-addon/compare/v2.3.3...v2.3.4) (2022-07-26)
 
 - [Feat] Add support for hiding archive titles for custom post types

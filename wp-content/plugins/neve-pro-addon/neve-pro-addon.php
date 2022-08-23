@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Neve Pro Addon
  * Description:       This plugin is an add-on to Neve WordPress theme which offers exclusive premium features, specially designed for Neve, to enhance your overall WordPress experience.
- * Version:           2.3.4
+ * Version:           2.3.5
  * Author:            ThemeIsle
  * Author URI:        https://themeisle.com
  * License:           GPLv3
@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'NEVE_PRO_NAME', 'Neve Pro Addon' );
 define( 'NEVE_PRO_REST_NAMESPACE', 'neve_pro/v1' );
-define( 'NEVE_PRO_VERSION', '2.3.4' );
+define( 'NEVE_PRO_VERSION', '2.3.5' );
 define( 'NEVE_PRO_NAMESPACE', 'neve_pro' );
 
 define( 'NEVE_PRO_URL', plugin_dir_url( __FILE__ ) );
@@ -107,6 +107,9 @@ if ( $_neve_pro_bootstrap_errors->has_errors() ) {
 
 	return;
 }
+
+add_filter( 'themeisle_sdk_products', 'neve_pro_load_sdk' );
+add_filter( 'themesle_sdk_namespace_' . md5( __FILE__ ), 'neve_pro_load_namespace' );
 
 $theme = get_template();
 
@@ -232,9 +235,6 @@ function neve_pro_load_textdomain() {
 }
 
 add_action( 'init', 'neve_pro_load_textdomain' );
-
-add_filter( 'themeisle_sdk_products', 'neve_pro_load_sdk' );
-add_filter( 'themesle_sdk_namespace_' . md5( __FILE__ ), 'neve_pro_load_namespace' );
 
 /**
  * Filter products array.

@@ -34,6 +34,8 @@ trait Conditional_Display {
 		'post_author'                     => 10,
 		'post'                            => 0,
 		'page_type'                       => 20,
+		'page_parent'                     => 0,
+		'page_ancestor'                   => 0,
 		'page_template'                   => 10,
 		'page'                            => 0,
 		'archive_type'                    => 30,
@@ -221,6 +223,12 @@ trait Conditional_Display {
 				break;
 			case 'page_template':
 				$evaluated = get_page_template_slug() === $condition['end'];
+				break;
+			case 'page_parent':
+				$evaluated = is_page() && wp_get_post_parent_id( $post ) === $condition['end'];
+				break;
+			case 'page_ancestor':
+				$evaluated = is_page() && in_array( $condition['end'], get_post_ancestors( $post ), true );
 				break;
 			case 'page_type':
 				$evaluated = $this->static_rules['page_type'][ $condition['end'] ];

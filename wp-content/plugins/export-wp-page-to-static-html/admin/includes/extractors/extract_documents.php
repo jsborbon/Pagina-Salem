@@ -5,11 +5,11 @@ namespace ExportHtmlAdmin\extract_documents;
 class extract_documents
 {
 
-    private $export_Wp_Page_To_Static_Html_Admin;
+    private $admin;
 
-    public function __construct($export_Wp_Page_To_Static_Html_Admin)
+    public function __construct($admin)
     {
-        $this->export_Wp_Page_To_Static_Html_Admin = $export_Wp_Page_To_Static_Html_Admin;
+        $this->admin = $admin;
     }
 
     /**
@@ -19,11 +19,11 @@ class extract_documents
      */
     public function get_documents($url="")
     {
-        $src = $this->export_Wp_Page_To_Static_Html_Admin->site_data;
+        $src = $this->admin->site_data;
         $documentHrefLinks = $src->find('a');
-        $path_to_dot = $this->export_Wp_Page_To_Static_Html_Admin->rc_path_to_dot($url, true, true);
+        $path_to_dot = $this->admin->rc_path_to_dot($url, true, true);
 
-        $saveAllAssetsToSpecificDir = $this->export_Wp_Page_To_Static_Html_Admin->getSaveAllAssetsToSpecificDir();
+        $saveAllAssetsToSpecificDir = $this->admin->getSaveAllAssetsToSpecificDir();
 
         if (!empty($documentHrefLinks)){
             foreach ($documentHrefLinks as $link) {
@@ -31,14 +31,14 @@ class extract_documents
                     $src_link = $link->href;
                     $src_link = html_entity_decode($src_link, ENT_QUOTES);
 
-                    $src_link = $this->export_Wp_Page_To_Static_Html_Admin->ltrim_and_rtrim($src_link);
+                    $src_link = $this->admin->ltrim_and_rtrim($src_link);
 
                     $src_link = url_to_absolute($url, $src_link);
-                    $host = $this->export_Wp_Page_To_Static_Html_Admin->get_host($src_link);
+                    $host = $this->admin->get_host($src_link);
 
-                    $docsExts = $this->export_Wp_Page_To_Static_Html_Admin->getDocsExtensions();
-                    $documentBasename = $this->export_Wp_Page_To_Static_Html_Admin->url_to_basename($src_link);
-                    $documentBasename = $this->export_Wp_Page_To_Static_Html_Admin->filter_filename($documentBasename);
+                    $docsExts = $this->admin->getDocsExtensions();
+                    $documentBasename = $this->admin->url_to_basename($src_link);
+                    $documentBasename = $this->admin->filter_filename($documentBasename);
 
                     $urlExt = pathinfo($documentBasename, PATHINFO_EXTENSION);
 
@@ -49,7 +49,7 @@ class extract_documents
 
                         $newlyCreatedBasename = $this->save_document($src_link, $url);
                         if(!$saveAllAssetsToSpecificDir){
-                            $middle_p = $this->export_Wp_Page_To_Static_Html_Admin->rc_get_url_middle_path_for_assets($src_link);
+                            $middle_p = $this->admin->rc_get_url_middle_path_for_assets($src_link);
                             $link->href = $path_to_dot . $middle_p . $newlyCreatedBasename;
                             $link->src = $path_to_dot . $middle_p . $newlyCreatedBasename;
                         }
@@ -63,7 +63,7 @@ class extract_documents
                 }
             }
         }
-        $this->export_Wp_Page_To_Static_Html_Admin->site_data = $src;
+        $this->admin->site_data = $src;
 
 
     }
@@ -71,14 +71,14 @@ class extract_documents
     public function save_document($document_url_prev = "", $found_on = "")
     {
         $document_url = $document_url_prev;
-        $documents_path = $this->export_Wp_Page_To_Static_Html_Admin->getDocsPath();
+        $documents_path = $this->admin->getDocsPath();
         $document_url = url_to_absolute($found_on, $document_url);
-        $m_basename = $this->export_Wp_Page_To_Static_Html_Admin->middle_path_for_filename($document_url);
-        $saveAllAssetsToSpecificDir = $this->export_Wp_Page_To_Static_Html_Admin->getSaveAllAssetsToSpecificDir();
-        $exportTempDir = $this->export_Wp_Page_To_Static_Html_Admin->getExportTempDir();
-        $keepSameName = $this->export_Wp_Page_To_Static_Html_Admin->getKeepSameName();
-        $host = $this->export_Wp_Page_To_Static_Html_Admin->get_host($document_url);
-        $basename = $this->export_Wp_Page_To_Static_Html_Admin->url_to_basename($document_url);
+        $m_basename = $this->admin->middle_path_for_filename($document_url);
+        $saveAllAssetsToSpecificDir = $this->admin->getSaveAllAssetsToSpecificDir();
+        $exportTempDir = $this->admin->getExportTempDir();
+        $keepSameName = $this->admin->getKeepSameName();
+        $host = $this->admin->get_host($document_url);
+        $basename = $this->admin->url_to_basename($document_url);
 
         if($saveAllAssetsToSpecificDir && $keepSameName && !empty($m_basename)){
             $m_basename = explode('-', $m_basename);
@@ -86,16 +86,20 @@ class extract_documents
         }
 
         if (
-            !$this->export_Wp_Page_To_Static_Html_Admin->is_link_exists($document_url)
-            && $this->export_Wp_Page_To_Static_Html_Admin->update_export_log($document_url)
+            !$this->admin->is_link_exists($document_url) && !$this->admin->is_failed_file($document_url)
+            && $this->admin->update_export_log($document_url)
         ) {
-            $this->export_Wp_Page_To_Static_Html_Admin->add_urls_log($document_url, $found_on, 'document');
+            $this->admin->add_urls_log($document_url, $found_on, 'document');
 
-            $basename = $this->export_Wp_Page_To_Static_Html_Admin->filter_filename($basename);
+            $basename = $this->admin->filter_filename($basename);
+
+            if ($this->admin->is_failed_file($document_url)){
+                $this->admin->update_export_log('failed');
+            }
 
             $my_file = $documents_path . $m_basename . $basename;
 
-            $middle_p = $this->export_Wp_Page_To_Static_Html_Admin->rc_get_url_middle_path_for_assets($document_url);
+            $middle_p = $this->admin->rc_get_url_middle_path_for_assets($document_url);
             if(!$saveAllAssetsToSpecificDir){
 
                 if(!file_exists($exportTempDir .'/'. $middle_p)){
@@ -111,15 +115,20 @@ class extract_documents
 
                     $my_file = $documents_path . $m_basename . $basename;
                 }
+                else{
+                    if(!file_exists($documents_path)){
+                        @mkdir($documents_path);
+                    }
+                }
             }
 
             if (!file_exists($my_file)) {
-                $abs_url_to_path = $this->export_Wp_Page_To_Static_Html_Admin->abs_url_to_path($document_url);
+                $abs_url_to_path = $this->admin->abs_url_to_path($document_url);
                 if (strpos($document_url, $host) !== false && file_exists($abs_url_to_path)){
                     @copy($abs_url_to_path, $my_file);
                 }
                 else{
-                    $data = $this->export_Wp_Page_To_Static_Html_Admin->get_url_data($document_url);
+                    $data = $this->admin->get_url_data($document_url);
                     $handle = @fopen($my_file, 'w') or die('Cannot open file:  ' . $my_file);
 
                     $data .= "\n/*This file was exported by \"Export WP Page to Static HTML\" plugin which created by ReCorp (https://myrecorp.com) */";
@@ -129,7 +138,7 @@ class extract_documents
 
 
 
-                $this->export_Wp_Page_To_Static_Html_Admin->update_urls_log($document_url_prev, 1);
+                $this->admin->update_urls_log($document_url_prev, 1);
 
             }
 
@@ -140,8 +149,8 @@ class extract_documents
         }
         else{
 
-            if (!(strpos($basename, ".") !== false) && $this->export_Wp_Page_To_Static_Html_Admin->get_newly_created_basename_by_url($document_url) != false){
-                return $m_basename . $this->export_Wp_Page_To_Static_Html_Admin->get_newly_created_basename_by_url($document_url);
+            if (!(strpos($basename, ".") !== false) && $this->admin->get_newly_created_basename_by_url($document_url) != false){
+                return $m_basename . $this->admin->get_newly_created_basename_by_url($document_url);
             }
 
             if ($saveAllAssetsToSpecificDir && !empty($m_basename)){

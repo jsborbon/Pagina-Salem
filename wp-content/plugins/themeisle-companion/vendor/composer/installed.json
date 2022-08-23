@@ -53,10 +53,6 @@
                 "stream_filter_append",
                 "stream_filter_register"
             ],
-            "support": {
-                "issues": "https://github.com/clue/stream-filter/issues",
-                "source": "https://github.com/clue/stream-filter/tree/v1.6.0"
-            },
             "funding": [
                 {
                     "url": "https://clue.engineering/support",
@@ -76,16 +72,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeinwp/elementor-extra-widgets.git",
-                "reference": "c6121466d107952821d35bec364983a88fbddab5"
+                "reference": "d86a080a608aeee4e5efb7ec88cb5caeda7c3249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeinwp/elementor-extra-widgets/zipball/c6121466d107952821d35bec364983a88fbddab5",
-                "reference": "c6121466d107952821d35bec364983a88fbddab5",
+                "url": "https://api.github.com/repos/Codeinwp/elementor-extra-widgets/zipball/d86a080a608aeee4e5efb7ec88cb5caeda7c3249",
+                "reference": "d86a080a608aeee4e5efb7ec88cb5caeda7c3249",
                 "shasum": ""
             },
-            "time": "2021-12-22T11:09:33+00:00",
-            "default-branch": true,
+            "time": "2022-08-22T09:52:46+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -105,10 +100,6 @@
                 }
             ],
             "homepage": "https://github.com/Codeinwp/elementor-extra-widgets",
-            "support": {
-                "issues": "https://github.com/Codeinwp/elementor-extra-widgets/issues",
-                "source": "https://github.com/Codeinwp/elementor-extra-widgets/tree/master"
-            },
             "install-path": "../codeinwp/elementor-extra-widgets"
         },
         {
@@ -127,7 +118,6 @@
                 "shasum": ""
             },
             "time": "2019-04-02T11:34:00+00:00",
-            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -148,10 +138,6 @@
             ],
             "description": "A WordPress library to create full width page templates.",
             "homepage": "https://github.com/Codeinwp/full-width-page-templates",
-            "support": {
-                "issues": "https://github.com/Codeinwp/full-width-page-templates/issues",
-                "source": "https://github.com/Codeinwp/full-width-page-templates/tree/master"
-            },
             "install-path": "../codeinwp/full-width-page-templates"
         },
         {
@@ -230,7 +216,6 @@
                 "wptrt/wpthemereview": "*"
             },
             "time": "2021-08-02T12:22:21+00:00",
-            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -259,23 +244,23 @@
         },
         {
             "name": "codeinwp/themeisle-sdk",
-            "version": "3.2.26",
-            "version_normalized": "3.2.26.0",
+            "version": "3.2.27",
+            "version_normalized": "3.2.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeinwp/themeisle-sdk.git",
-                "reference": "a4451041bb97a325c7bb8e86a5584adf4636650e"
+                "reference": "bab0314e1f6e2f811116a2da7736b94cbe6af90f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeinwp/themeisle-sdk/zipball/a4451041bb97a325c7bb8e86a5584adf4636650e",
-                "reference": "a4451041bb97a325c7bb8e86a5584adf4636650e",
+                "url": "https://api.github.com/repos/Codeinwp/themeisle-sdk/zipball/bab0314e1f6e2f811116a2da7736b94cbe6af90f",
+                "reference": "bab0314e1f6e2f811116a2da7736b94cbe6af90f",
                 "shasum": ""
             },
             "require-dev": {
                 "codeinwp/phpcs-ruleset": "dev-main"
             },
-            "time": "2022-05-12T11:55:06+00:00",
+            "time": "2022-08-23T13:09:40+00:00",
             "type": "library",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -296,7 +281,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeinwp/themeisle-sdk/issues",
-                "source": "https://github.com/Codeinwp/themeisle-sdk/tree/v3.2.26"
+                "source": "https://github.com/Codeinwp/themeisle-sdk/tree/v3.2.27"
             },
             "install-path": "../codeinwp/themeisle-sdk"
         },
@@ -393,10 +378,6 @@
                 "uri",
                 "url"
             ],
-            "support": {
-                "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/1.9.0"
-            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -460,10 +441,6 @@
                 "marketing",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/mailerlite/mailerlite-api-v2-php-sdk/issues",
-                "source": "https://github.com/mailerlite/mailerlite-api-v2-php-sdk/tree/master"
-            },
             "install-path": "../mailerlite/mailerlite-api-v2-php-sdk"
         },
         {
@@ -595,10 +572,6 @@
                 "curl",
                 "http"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/curl-client/issues",
-                "source": "https://github.com/php-http/curl-client/tree/v1.7.1"
-            },
             "install-path": "../php-http/curl-client"
         },
         {
@@ -666,10 +639,6 @@
                 "message",
                 "psr7"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/master"
-            },
             "install-path": "../php-http/discovery"
         },
         {
@@ -729,10 +698,6 @@
                 "client",
                 "http"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/httplug/issues",
-                "source": "https://github.com/php-http/httplug/tree/master"
-            },
             "install-path": "../php-http/httplug"
         },
         {
@@ -808,10 +773,6 @@
                 "message",
                 "psr-7"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/message/issues",
-                "source": "https://github.com/php-http/message/tree/master"
-            },
             "install-path": "../php-http/message"
         },
         {
@@ -865,10 +826,6 @@
                 "stream",
                 "uri"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/message-factory/issues",
-                "source": "https://github.com/php-http/message-factory/tree/master"
-            },
             "install-path": "../php-http/message-factory"
         },
         {
@@ -922,10 +879,6 @@
             "keywords": [
                 "promise"
             ],
-            "support": {
-                "issues": "https://github.com/php-http/promise/issues",
-                "source": "https://github.com/php-http/promise/tree/master"
-            },
             "install-path": "../php-http/promise"
         },
         {
@@ -979,9 +932,6 @@
                 "request",
                 "response"
             ],
-            "support": {
-                "source": "https://github.com/php-fig/http-message/tree/master"
-            },
             "install-path": "../psr/http-message"
         },
         {
@@ -1025,10 +975,6 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "support": {
-                "issues": "https://github.com/ralouphie/getallheaders/issues",
-                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
-            },
             "install-path": "../ralouphie/getallheaders"
         },
         {

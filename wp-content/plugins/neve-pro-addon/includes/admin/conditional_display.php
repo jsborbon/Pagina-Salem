@@ -54,6 +54,8 @@ class Conditional_Display {
 		'page_templates' => [],
 		'pages'          => [],
 		'page_type'      => [],
+		'page_parent'    => [],
+		'page_ancestor'  => [],
 		'terms'          => [],
 		'taxonomies'     => [],
 		'archive_types'  => [],
@@ -98,6 +100,8 @@ class Conditional_Display {
 					'page_type'     => __( 'Page Type', 'neve' ),
 					'page_template' => __( 'Page Template', 'neve' ),
 					'page'          => __( 'Page', 'neve' ),
+					'page_parent'   => __( 'Page Parent', 'neve' ),
+					'page_ancestor' => __( 'Page Ancestor', 'neve' ),
 				],
 			],
 			'archive' => [
@@ -128,6 +132,8 @@ class Conditional_Display {
 			'posts_page' => __( 'Posts Page', 'neve' ),
 			'not_found'  => __( '404', 'neve' ),
 		];
+		$this->end_ruleset['page_parent']    = $this->get_page_post_list( 'page' );
+		$this->end_ruleset['page_ancestor']  = $this->get_page_post_list( 'page' );
 		$this->end_ruleset['terms']          = $this->get_all_taxonomies();
 		$this->end_ruleset['taxonomies']     = $this->get_all_taxonomies();
 		$this->end_ruleset['archive_types']  = $this->get_archive_types();
@@ -144,6 +150,8 @@ class Conditional_Display {
 			'page_templates' => [ 'page_template' ],
 			'pages'          => [ 'page' ],
 			'page_type'      => [ 'page_type' ],
+			'page_parent'    => [ 'page_parent' ],
+			'page_ancestor'  => [ 'page_ancestor' ],
 			'terms'          => [ 'post_taxonomy', 'archive_term' ],
 			'taxonomies'     => [ 'archive_taxonomy' ],
 			'archive_types'  => [ 'archive_type' ],
