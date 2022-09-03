@@ -544,23 +544,23 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.4.3",
-            "version_normalized": "2.4.3.0",
+            "version": "2.4.5",
+            "version_normalized": "2.4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "d2c3e1c27792f34123f928ea9fa73be56c337d13"
+                "reference": "d4aa83b1e74f3269affcbfe0d2b75ceae35ba864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/d2c3e1c27792f34123f928ea9fa73be56c337d13",
-                "reference": "d2c3e1c27792f34123f928ea9fa73be56c337d13",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/d4aa83b1e74f3269affcbfe0d2b75ceae35ba864",
+                "reference": "d4aa83b1e74f3269affcbfe0d2b75ceae35ba864",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
-            "time": "2022-03-03T09:14:17+00:00",
+            "time": "2022-07-31T06:50:47+00:00",
             "type": "library",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -580,34 +580,35 @@
             ],
             "support": {
                 "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.4.3"
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.4.5"
             },
             "install-path": "../freemius/wordpress-sdk"
         },
         {
             "name": "liborm85/composer-vendor-cleaner",
-            "version": "1.6.0",
-            "version_normalized": "1.6.0.0",
+            "version": "1.7.0",
+            "version_normalized": "1.7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liborm85/composer-vendor-cleaner.git",
-                "reference": "3236f59373a79b1c1ba9e705e292caacb10ea1bd"
+                "reference": "e4ebaf2a65ac74fd4cc6dcf2b92e2f68cc4bb23c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liborm85/composer-vendor-cleaner/zipball/3236f59373a79b1c1ba9e705e292caacb10ea1bd",
-                "reference": "3236f59373a79b1c1ba9e705e292caacb10ea1bd",
+                "url": "https://api.github.com/repos/liborm85/composer-vendor-cleaner/zipball/e4ebaf2a65ac74fd4cc6dcf2b92e2f68cc4bb23c",
+                "reference": "e4ebaf2a65ac74fd4cc6dcf2b92e2f68cc4bb23c",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1 || ^2.0",
+                "ext-json": "*",
                 "php": ">=5.6.0"
             },
             "require-dev": {
                 "composer/composer": "^1.10.23 || ^2.1.9",
                 "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.4 || ^9.1"
             },
-            "time": "2022-01-01T10:06:35+00:00",
+            "time": "2022-07-29T12:33:34+00:00",
             "type": "composer-plugin",
             "extra": {
                 "class": "Liborm85\\ComposerVendorCleaner\\Plugin"

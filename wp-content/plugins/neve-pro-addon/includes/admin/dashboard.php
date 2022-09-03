@@ -146,9 +146,9 @@ class Dashboard {
 	 */
 	private function get_upgrade_links() {
 		return array(
-			'1' => 'https://themeisle.com/themes/neve/upgrade/',
-			'2' => 'https://themeisle.com/themes/neve/upgrade/',
-			'3' => 'https://themeisle.com/themes/neve/upgrade/',
+			'1' => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'upgrade_link', 'neveprosettings' ),
+			'2' => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'upgrade_link', 'neveprosettings' ),
+			'3' => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'upgrade_link', 'neveprosettings' ),
 		);
 	}
 

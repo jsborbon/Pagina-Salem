@@ -26,7 +26,7 @@ return [
     'shortcode' => new ShortcodeModule(),
     'wp_block' => new WpBlockModule(),
     'widget' => new WidgetModule(),
-    // 'oembed' => new OEmbedModule(),
+    'oembed' => new OEmbedModule(),
     'notifications' => new NotificationsModule(),
     'migrator' => new MigrationModule(),
     'saas' => new SaasModule(),

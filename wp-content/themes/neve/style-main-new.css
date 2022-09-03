@@ -1024,8 +1024,8 @@ blockquote.is-style-large.wp-block-quote > p {
 }
 
 .nav-toggle-label {
-  margin-right: 5px;
   line-height: 1;
+  margin: var(--label-margin, 0 5px 0 0);
 }
 
 .navbar-toggle-wrapper {
@@ -2043,6 +2043,7 @@ audio {
 }
 
 .nav-ul a,
+.nav-ul .wrap a .dd-title,
 .builder-item--footer-menu,
 .component-wrap,
 .palette-icon-wrapper,

@@ -1,0 +1,111 @@
+.docus-wrapper{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+span.tbl-ttle {
+    color: #23282d;
+    font-size: 1.2em;
+    display: block;
+    font-weight: 600;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+.docus-layout{
+    display: flex;
+}
+.docus-col {
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+}
+.ht-layout-inner{
+    display: flex;
+    position: relative;
+}
+.ht-layout-inner label,.ht-layout-inner input{
+    margin-top: 7px !important;
+    margin-left: 10px;
+}
+.docus-col .ht-demo-image{
+    width: 400px;
+    height: 350px;
+    background: #fff;
+    position: absolute;
+    bottom: 115%;
+    -webkit-box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.75);
+    display: none;
+}
+
+.docus-col .ht-demo-image .ht-icon-down{
+    position: absolute;
+    bottom: -13px;
+    left: 24%;
+}
+table.ht-shortcode-table{
+    border-collapse: collapse;
+    width: 60%;
+}
+
+table.ht-shortcode-table th, table.ht-shortcode-table td{
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: left;   
+}
+.ht-short-code-info{
+    margin-top: 30px;
+}
+
+.docus-tablehedding {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.htg-nav.nav-tab{
+    outline: none;
+    box-shadow: none;
+}
+.docus-tab-group{
+    display: none;
+}
+.docus-tab-group.docus-active-tab{
+    display: block;
+}
+.docus-playlist-wraper{
+    position: relative;
+}
+.docus-playlist-info{
+    cursor: pointer;
+}
+
+.docus-playlist-info{
+    position: relative;
+
+}
+img.docus-demo-id {
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 25px;
+    left: -264px;
+    -webkit-box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.75);
+}
+
+span.docus-playlist-info:hover img.docus-demo-id, 
+span.docus-playlist-info:hover img.docus-playlist-aro{
+    opacity: 1;
+    visibility: visible;
+}
+img.docus-playlist-aro{
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 16px;
+    left: 0px;
+}

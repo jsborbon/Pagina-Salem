@@ -100,17 +100,14 @@ class Loader {
 		if ( in_array( $license_status, array( 'not_active', 'invalid' ), true ) ) {
 			$activate_link = admin_url( 'themes.php?page=neve-welcome#pro' );
 			$links[]       = '<a href="' . esc_url( $activate_link ) . '">' . esc_html__( 'Activate License', 'neve' ) . '</a>';
+		} elseif ( $license_status === 'active_expired' ) {
+			$renew_link = 'https://docs.themeisle.com/article/1512-how-to-manually-renew-your-plan-or-subscription';
+			$links[]    = '<a href="' . esc_url( $renew_link ) . '" target="_blank" rel="external noopener noreferrer">' . esc_html__( 'Renew', 'neve' ) . '</a>';
+		} elseif ( $this->get_license_type() < 3 ) {
+			$upgrade_link = tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'actionlink' );
+			$links[]      = '<a href="' . esc_url( $upgrade_link ) . '" target="_blank" rel="external noopener noreferrer">' . esc_html__( 'Upgrade', 'neve' ) . '</a>';
 		}
 
-		if ( $this->get_license_type() < 3 ) {
-			$upgrade_link = 'https://themeisle.com/themes/neve/upgrade/?utm_medium=pluginlist&utm_source=actionlink&utm_campaign=neve'; 
-			$links[]      = '<a href="' . esc_url( $upgrade_link ) . '" target="_blank" rel="external noopener noreferrer">' . esc_html__( 'Upgrade License', 'neve' ) . '</a>';
-		}
-
-		if ( $license_status === 'active_expired' ) {
-			$renew_link = 'https://docs.themeisle.com/article/1512-how-to-manually-renew-your-plan-or-subscription'; 
-			$links[]    = '<a href="' . esc_url( $renew_link ) . '" target="_blank" rel="external noopener noreferrer">' . esc_html__( 'Renew License', 'neve' ) . '</a>';
-		}
 
 		return $links;
 	}

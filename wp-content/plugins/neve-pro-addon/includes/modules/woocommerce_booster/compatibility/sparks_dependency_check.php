@@ -30,7 +30,7 @@ class Sparks_Dependency_Check {
 	protected $is_sparks_installed = null;
 
 	/**
-	 * Initialization
+	 * Initialization - Should be executed on only admin side.
 	 *
 	 * @return void
 	 */
@@ -65,11 +65,11 @@ class Sparks_Dependency_Check {
 	 * @return void
 	 */
 	private function wp_admin_notices() {
-		if ( ! $this->is_sparks_installed && ! $this->is_sparks_active ) {
+		if ( current_user_can( 'install_plugins' ) && ! $this->is_sparks_installed ) {
 			add_action( 'admin_notices', array( $this, 'wp_admin_notice_sparks_missing' ) );
 		}
 
-		if ( $this->is_sparks_installed && ! $this->is_sparks_active ) {
+		if ( current_user_can( 'activate_plugins' ) && $this->is_sparks_installed && ! $this->is_sparks_active ) {
 			add_action( 'admin_notices', array( $this, 'wp_admin_notice_sparks_not_activated' ) );
 		}
 	}

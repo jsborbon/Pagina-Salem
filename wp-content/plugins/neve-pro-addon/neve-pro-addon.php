@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Neve Pro Addon
  * Description:       This plugin is an add-on to Neve WordPress theme which offers exclusive premium features, specially designed for Neve, to enhance your overall WordPress experience.
- * Version:           2.3.5
+ * Version:           2.3.6
  * Author:            ThemeIsle
  * Author URI:        https://themeisle.com
  * License:           GPLv3
@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'NEVE_PRO_NAME', 'Neve Pro Addon' );
 define( 'NEVE_PRO_REST_NAMESPACE', 'neve_pro/v1' );
-define( 'NEVE_PRO_VERSION', '2.3.5' );
+define( 'NEVE_PRO_VERSION', '2.3.6' );
 define( 'NEVE_PRO_NAMESPACE', 'neve_pro' );
 
 define( 'NEVE_PRO_URL', plugin_dir_url( __FILE__ ) );

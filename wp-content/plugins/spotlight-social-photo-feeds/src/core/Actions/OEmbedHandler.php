@@ -37,9 +37,19 @@ class OEmbedHandler
     protected function fetchHtml(string $url): string
     {
         $account = AccountPostType::findBusinessAccount($this->accounts);
+
+        // User must have a business account connected
         if ($account === null) {
-            // User does not have a business account connected
-            return '<p>You need to connect a Business accounts to embed Instagram posts</p>';
+            if (is_user_logged_in() && current_user_can('edit_posts')) {
+                $msg = sprintf(
+                    'A free %s is required to embed Instagram posts. Kindly connect one and try again. (This message is only visible to logged-in users.)',
+                    '<a href="https://docs.spotlightwp.com/article/555-how-to-switch-to-an-instagram-business-account" target="_blank">Business account</a>'
+                );
+
+                return "<p><b>Spotlight</b>: $msg</p>";
+            } else {
+                return '';
+            }
         }
 
         // Remove GET params from IG post URL

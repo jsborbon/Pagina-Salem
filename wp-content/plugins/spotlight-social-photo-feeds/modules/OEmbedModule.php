@@ -12,10 +12,6 @@ class OEmbedModule extends Module
 {
     public function run(ContainerInterface $c): void
     {
-        add_filter('rest_oembed_ttl', function () {
-            return 0;
-        });
-
         wp_embed_register_handler(
             $c->get('id'),
             $c->get('regex'),

@@ -6,7 +6,7 @@ Tags: Instagram, Instagram feed, Instagram feeds, Instagram widget, Instagram em
 Requires at least: 5.7
 Requires PHP: 7.1
 Tested up to: 5.9
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv3
 
 Easily display Instagram feeds in less than 7 clicks. Customizable, accessible, and SEO-friendly. The fastest-growing Instagram feed solution.
@@ -247,6 +247,11 @@ Yes, aside from the customisation options provided by Spotlight itself, the plug
 7. [Premium] Create shoppable Instagram Feeds and Instagram bio link pages in seconds. Link Instagram posts to articles, products, recipes, and much more.
 
 == Changelog ==
+
+= 1.3 (2022-08-29) =
+
+**Added**
+- Added support for Instagram embeds to WordPress
 
 = 1.2 (2022-08-09) =
 
